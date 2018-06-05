@@ -1,0 +1,4 @@
+#!/bin/bash -e
+
+[[ -z "$COMPOSE_PROJECT_NAME" ]] && source "$(pwd)/project.env"
+docker-compose build $@

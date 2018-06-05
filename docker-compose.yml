@@ -1,0 +1,21 @@
+version: '2.1'
+
+services:
+  app:
+    restart: unless-stopped
+    build:
+      context: ./app
+      dockerfile: Dockerfile
+      args:
+        # internal ports
+        - PORT=3000
+    ports:
+      # map external ports to internal ports
+      - ${PORT:-3000}:3000
+    env_file:
+      - ./app/secrets.env
+    volumes:
+      - notused:/opt/app/node_modules
+
+volumes:
+  notused:

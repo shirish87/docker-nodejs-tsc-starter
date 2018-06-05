@@ -1,0 +1,17 @@
+#!/bin/bash -e
+
+[[ -z "$COMPOSE_PROJECT_NAME" ]] && source "$(pwd)/project.env"
+[ -z "$1" ] && { echo "ERROR: Please specify a service name."; exit 1; }
+
+if [ ! -z "$COMPOSE_PROJECT_NAME" ]; then
+    instance=`docker ps -q -f ancestor="${COMPOSE_PROJECT_NAME}_$1"`
+    echo "Logging into ${instance}..."
+
+    if [ ! -z "$instance" ]; then
+        docker exec -i -t "$instance" /bin/bash
+        exit 0
+    fi
+fi
+
+echo "Screw you"
+exit 1

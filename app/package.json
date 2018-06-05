@@ -1,0 +1,19 @@
+{
+  "name": "sample-app",
+  "version": "1.0.0",
+  "description": "Sample TypeScript node.js express app",
+  "author": {},
+  "repository": {},
+  "license": "MIT",
+  "scripts": {
+    "clean": "rm -rf ./dist/*",
+    "start": "npm run clean; tsc -p ./src && node ./dist/index.js",
+    "debug": "npm run clean; tsc-watch -p ./src --outDir ./dist --onSuccess \"node --inspect=0.0.0.0 ./dist/index.js\""
+  },
+  "main": "./dist/index.js",
+  "dependencies": {
+    "express": "4.16.3",
+    "@types/node": "8.10.18",
+    "@types/express": "4.16.0"
+  }
+}

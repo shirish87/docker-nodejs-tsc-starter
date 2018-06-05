@@ -1,0 +1,4 @@
+#!/bin/bash -e
+
+[[ -z "$COMPOSE_PROJECT_NAME" ]] && DEV=1 source "$(pwd)/project.env"
+COMPOSE_FILE=docker-compose.dev.yml "$(pwd)/docker/shell" $@
