@@ -1,17 +1,18 @@
 #!/bin/bash -e
 
-[[ -z "$COMPOSE_PROJECT_NAME" ]] && source "$(pwd)/project.env"
 [ -z "$1" ] && { echo "ERROR: Please specify a service name."; exit 1; }
+[[ -z "$COMPOSE_PROJECT_NAME" ]] && source "$(pwd)/project.env"
 
-if [ ! -z "$COMPOSE_PROJECT_NAME" ]; then
-    instance=`docker ps -q -f ancestor="${COMPOSE_PROJECT_NAME}_$1"`
-    echo "Logging into ${instance}..."
+image="${COMPOSE_PROJECT_NAME}_$1"
+instance=`docker ps -q -l -f ancestor="${image}" --format '{{.ID}} {{.Names}}'`
 
-    if [ ! -z "$instance" ]; then
-        docker exec -i -t "$instance" /bin/bash
-        exit 0
-    fi
+if [ ! -z "$instance" ]; then
+    container=($instance)
+    echo "Container: ${container[1]} (${container[0]})"
+    docker exec -i -t "${container[0]}" /bin/bash
+    exit 0
 fi
 
-echo "Screw you"
+echo -e "ERROR: Container matching image '${image}' not found.\n"
+docker ps
 exit 1

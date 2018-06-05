@@ -1,0 +1,3 @@
+#!/bin/bash -e
+
+DEV=1 "$(pwd)/docker/rebuild"
