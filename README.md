@@ -35,7 +35,7 @@ Set environment variable `PROJECT_NAME` in `project.env`. This serves as a prefi
 ```
 ./docker/start-dev
 ```
-This fires up [tsc-watch](https://www.npmjs.com/package/tsc-watch) that monitors TypeScript files in `./app/src` directory for changes. On compilation of `.ts` files, `node` is run in the `./app/dist` directory with the debugger enabled (`--inspect=0.0.0.0:9229`).
+This fires up [tsc-watch](https://www.npmjs.com/package/tsc-watch) that monitors TypeScript files in `./app/src` directory for changes. On compilation of `.ts` files, `node` is run in the `./app/dist` directory with the debugger enabled (`--inspect=0.0.0.0:9229`). See [Attach to Docker](https://github.com/shirish87/docker-nodejs-tsc-starter/blob/03025a5/.vscode/launch.json) VS Code task.
 
 
 ## Start in Production Mode
