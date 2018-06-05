@@ -5,6 +5,7 @@
   "author": {},
   "repository": {},
   "license": "Apache-2.0",
+  "private": true,
   "scripts": {
     "clean": "rm -rf ./dist/*",
     "start": "npm run clean; tsc -p ./src && node ./dist/index.js",
