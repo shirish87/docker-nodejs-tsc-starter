@@ -4,7 +4,7 @@
   "description": "Sample TypeScript node.js express app",
   "author": {},
   "repository": {},
-  "license": "MIT",
+  "license": "Apache-2.0",
   "scripts": {
     "clean": "rm -rf ./dist/*",
     "start": "npm run clean; tsc -p ./src && node ./dist/index.js",
