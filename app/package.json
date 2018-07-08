@@ -13,8 +13,9 @@
   },
   "main": "./dist/index.js",
   "dependencies": {
-    "express": "4.16.3",
+    "@types/express": "4.16.0",
     "@types/node": "8.10.18",
-    "@types/express": "4.16.0"
+    "express": "4.16.3",
+    "prom-client": "11.1.1"
   }
 }
